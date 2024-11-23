@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <!-- Nuevo contenedor con fondo para el título -->
+        <div class="text-center p-5 text-white bg-dark rounded" style="background: url('images/Encuestas.jpeg') no-repeat center center; background-size: cover;">
+            <h2 class="text-shadow">Encuesta para Estudiantes</h2>
+        </div>
+
+        <form id="encuestaForm" class="mt-4">
+            <!-- Sección 1 -->
+            <h3 class="mt-4">Sección 1: Datos generales y contexto</h3>
+            <div class="mb-3">
+                <label class="form-label">¿Trabajas actualmente?</label>
+                <select class="form-select" name="trabajo" required>
+                    <option value="Tiempo completo">Sí, tiempo completo</option>
+                    <option value="Medio tiempo">Sí, medio tiempo</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">¿Cuántos días a la semana trabajas? (Si aplica)</label>
+                <input type="number" class="form-control" min="0" max="7" name="dias_trabajo">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">¿Cuánto tiempo te toma trasladarte desde tu casa a la universidad?</label>
+                <select class="form-select" name="tiempo_traslado" required>
+                    <option value="Menos de 30 minutos">Menos de 30 minutos</option>
+                    <option value="De 30 minutos a 1 hora">De 30 minutos a 1 hora</option>
+                    <option value="Más de 1 hora">Más de 1 hora</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">¿Cuántas horas al día dedicas al estudio fuera de clase?</label>
+                <input type="number" class="form-control" min="0" name="horas_estudio" required>
+            </div>
+
+            <!-- Sección 2 -->
+            <h3 class="mt-4">Sección 2: Preferencias de horarios y días</h3>
+            <div class="mb-3">
+                <label class="form-label">¿Qué días de la semana prefieres tomar clases presenciales?</label>
+                <select class="form-select" name="dias_clases" required>
+                    <option value="Lunes a Viernes">Lunes a Viernes</option>
+                    <option value="Sábado">Sábado</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">¿En qué horarios prefieres que se impartan tus clases?</label>
+                <select class="form-select" name="horarios_clases" required>
+                    <option value="Mañana (7:00 - 12:00)">Mañana (7:00 - 12:00)</option>
+                    <option value="Tarde (12:00 - 17:00)">Tarde (12:00 - 17:00)</option>
+                    <option value="Noche (17:00 - 22:00)">Noche (17:00 - 22:00)</option>
+                </select>
+            </div>
+
+            <!-- Sección 3 -->
+            <h3 class="mt-4">Sección 3: Capacidad y distribución de grupos</h3>
+            <div class="mb-3">
+                <label class="form-label">¿Tuviste dificultades para encontrar cupo en tus materias?</label>
+                <select class="form-select" name="dificultades_cupo" required>
+                    <option value="Sí, en todas">Sí, en todas</option>
+                    <option value="Sí, en algunas">Sí, en algunas</option>
+                    <option value="No, siempre encontré cupo">No, siempre encontré cupo</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">¿Cuál es el tamaño de grupo que consideras ideal?</label>
+                <select class="form-select" name="tamano_ideal" required>
+                    <option value="Menos de 20 alumnos">Menos de 20 alumnos</option>
+                    <option value="Entre 20 y 40 alumnos">Entre 20 y 40 alumnos</option>
+                    <option value="Más de 40 alumnos">Más de 40 alumnos</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">¿Te sientes cómodo con la cantidad de alumnos en tus clases presenciales?</label>
+                <select class="form-select" name="comodidad_clases" required>
+                    <option value="Sí, me parece adecuada">Sí, me parece adecuada</option>
+                    <option value="No, creo que hay demasiados alumnos por grupo">No, creo que hay demasiados alumnos por grupo</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Si se abrieran más grupos, ¿crees que mejorarías tu rendimiento académico?</label>
+                <select class="form-select" name="mejora_rendimiento" required>
+                    <option value="Sí">Sí</option>
+                    <option value="No">No</option>
+                    <option value="No estoy seguro">No estoy seguro</option>
+                </select>
+            </div>
+
+            <!-- Sección 4 -->
+            <h3 class="mt-4">Sección 4: Satisfacción y propuestas</h3>
+            <div class="mb-3">
+                <label class="form-label">¿Consideras que la oferta actual de horarios y materias es suficiente?</label>
+                <select class="form-select" name="oferta_horarios" required>
+                    <option value="Sí">Sí</option>
+                    <option value="No, debería haber más opciones">No, debería haber más opciones</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">¿Qué materias te gustaría que se ofrecieran en horario vespertino o nocturno? (Especificar)</label>
+                <textarea class="form-control" name="materias_preferidas" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">¿Qué sugerencias específicas tienes para mejorar la distribución de horarios o grupos?</label>
+                <textarea class="form-control" name="sugerencias" rows="3"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-danger w-100">Enviar Encuesta</button>
+        </form>
+    </div>
+
+    <!-- Modal de encuesta respondida -->
+    <div class="modal fade" id="modalEncuesta" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">¡Gracias por responder!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    Tu encuesta ha sido enviada con éxito.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById("encuestaForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const modal = new bootstrap.Modal(document.getElementById("modalEncuesta"));
+            modal.show();
+        });
+    </script>
+</body>
+</html>

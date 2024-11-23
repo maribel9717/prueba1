@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPTIDESK</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url('images/image (1).png') no-repeat center center;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background: url('images/Pagina Principal.png') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        header h1 {
+            position: relative;
+            z-index: 2;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <h1>OPTIDESK</h1>
+    </header>
+
+    <!-- Barra de navegación principal -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Portal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="menuDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Seleccionar Vista
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="menuDropdown">
+                            <li><a class="dropdown-item" href="#" onclick="mostrarVista('alumno')">Alumno</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="mostrarVista('coordinacion')">Coordinación</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido dinámico -->
+    <div class="container my-4">
+        <!-- Contenido de Alumno -->
+        <div id="vista-alumno" style="display: none;">
+            <!-- Barra de navegación de Alumno -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Alumno</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarAlumno" aria-controls="navbarAlumno" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarAlumno">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item"><a class="nav-link" href="#encuestas">Responder Encuestas</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#notificaciones">Notificaciones</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#actualizarDatos">Actualizar Datos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#consultaDatos">Consulta de Datos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#incidencias">Levantamiento de Incidencias</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <h2 class="text-center">Bienvenido al Portal de Alumnos</h2>
+            <div class="card my-3" id="encuestas">
+                <div class="card-body">
+                    <h5 class="card-title">1. Responder Encuestas</h5>
+                    <p class="card-text">Accede y responde encuestas para contribuir a la toma de decisiones.</p>
+                    <a href="encuesta.html" class="btn btn-danger">Responder Encuesta</a>
+                </div>
+            </div>
+            <!-- Visualización de Notificaciones -->
+        <div class="card my-3" id="notificaciones">
+            <div class="card-body">
+                <h5 class="card-title">2. Visualización de Notificaciones</h5>
+                <p class="card-text">Revisa notificaciones importantes sobre modificaciones de horarios o cancelación de grupos.</p>
+                <a href="notificaciones.html" class="btn btn-danger">Ver Notificaciones</a>
+            </div>
+        </div>
+
+        <!-- Actualizar Datos Estadísticos -->
+        <div class="card my-3" id="actualizarDatos">
+            <div class="card-body">
+                <h5 class="card-title">3. Actualizar Datos Estadísticos</h5>
+                <p class="card-text">Actualiza tus datos académicos para mantener un seguimiento en tu proceso.</p>
+                <a href="Actualizazcion_.html" class="btn btn-danger">Actualizar Datos</a>
+                <div class="text-muted mt-2" id="actualizarOutput"></div>
+            </div>
+        </div>
+
+        <!-- Consulta de Datos -->
+        <div class="card my-3" id="consultaDatos">
+            <div class="card-body">
+                <h5 class="card-title">4. Consulta de Datos</h5>
+                <p class="card-text">Consulta información actualizada sobre tus cursos y horarios.</p>
+                <a href="Consulta_.html" class="btn btn-danger">Consultar Datos</a>
+                <div class="text-muted mt-2" id="consultaOutput"></div>
+            </div>
+        </div>
+
+        <!-- Levantamiento de Incidencias -->
+        <div class="card my-3" id="incidencias">
+            <div class="card-body">
+                <h5 class="card-title">5. Levantamiento de Incidencias</h5>
+                <p class="card-text">Solicita asistencia técnica en caso de problemas durante el proceso de inscripción.</p>
+                <a href="incidencias.html" class="btn btn-danger">Levantar Incidencia</a>
+            </div>
+        </div>
+
+            <!-- Resto del contenido de Alumno... -->
+        </div>
+
+        <!-- Contenido de Coordinación -->
+        <div id="vista-coordinacion" style="display: none;">
+            <!-- Barra de navegación de Coordinación -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Coordinación</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCoordinacion" aria-controls="navbarCoordinacion" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarCoordinacion">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item"><a class="nav-link" href="#horariosC">Revisión Horarios</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#notificacionesC">Generar Notificación</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#estadisticas">Revisión de Estadísticas</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#incidenciasC">Revisión de Incidencias</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <h2 class="text-center">Bienvenido al Portal de Coordinación</h2>
+            <div class="card my-3" id="horariosC">
+                <div class="card-body">
+                    <h5 class="card-title">1. Revisión Horarios</h5>
+                    <p class="card-text">Configuración y acceso a los horarios.</p>
+                    <button onclick="horariosC()" class="btn btn-danger">Horarios</button>
+                    <div class="text-muted mt-2" id="actualizarHora"></div>
+                </div>
+            </div>
+            <!-- Resto del contenido de Coordinación... -->
+            <!-- Visualización de Notificaciones -->
+        <div class="card my-3" id="notificacionesC">
+            <div class="card-body">
+                <h5 class="card-title">2.Notificaciones</h5>
+                <p class="card-text">Genera notificaciones importantes sobre modificaciones de horarios o cancelacion de grupos.</p>
+                <a href="notificacion.html" class="btn btn-danger">Generar Notificaciones</a>
+                <div class="text-muted mt-2" id="actualizarNoti"></div>
+            </div>
+        </div>
+
+        <!-- Actualizar Datos Estadísticos -->
+        <div class="card my-3" id="estadisticas">
+            <div class="card-body">
+                <h5 class="card-title">3. Revision de Estadisticas</h5>
+                <p class="card-text">Actualiza tus datos académicos para mantener un seguimiento en tu proceso.</p>
+                <button onclick="estadisticas()" class="btn btn-danger">Revisar estadisticas</button>
+                <div class="text-muted mt-2" id="actualizarEsta"></div>
+            </div>
+        </div>
+
+        <!-- Consulta de Datos -->
+        <div class="card my-3" id="incidenciasC">
+            <div class="card-body">
+                <h5 class="card-title">4. Revision de Incidencias</h5>
+                <p class="card-text">Incidencias recibidas.</p>
+                <button onclick="incidenciasC()" class="btn btn-danger">Revision Incidencias</button>
+                <div class="text-muted mt-2" id="consultaInci"></div>
+            </div>
+        </div>
+
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Derechos Reservados. Creado por Equipo 8 de Ingeniería de Software / Matemáticas Aplicadas y Computación</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Función para alternar vistas y guardar la selección en localStorage
+        function mostrarVista(vista) {
+            // Guardar la vista seleccionada en localStorage
+            localStorage.setItem('vistaSeleccionada', vista);
+            // Mostrar u ocultar las vistas según la selección
+            document.getElementById('vista-alumno').style.display = vista === 'alumno' ? 'block' : 'none';
+            document.getElementById('vista-coordinacion').style.display = vista === 'coordinacion' ? 'block' : 'none';
+        }
+    
+        // Función para restaurar la vista seleccionada al cargar la página
+        document.addEventListener('DOMContentLoaded', () => {
+            // Obtener la vista seleccionada desde localStorage o usar una vista predeterminada
+            const vistaGuardada = localStorage.getItem('vistaSeleccionada') || 'alumno'; // Por defecto, "alumno"
+            mostrarVista(vistaGuardada); // Mostrar la vista guardada
+        });
+    
+        // Funciones específicas para la vista de coordinación
+        function horariosC() {
+            document.getElementById("actualizarHora").innerText = "Informacion de Horarios en proceso.";
+        }
+    
+        function notificacionesC() {
+            document.getElementById("actualizarNoti").innerText = "Consultando notificaciones";
+        }
+    
+        function estadisticas() {
+            document.getElementById("actualizarEsta").innerText = "Revisando estadísticas...";
+        }
+    
+        function incidenciasC() {
+            document.getElementById("consultaInci").innerText = "Consultando incidencias...";
+        }
+    </script>
+    
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
